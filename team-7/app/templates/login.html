@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+        <title>Login Page</title>
+    </head>
+    <body>
+
+        <div class="row" style="margin-top:18%">
+            <div class="col-md-1 col-xs-2"></div>
+            <div class="col-md-3 col-xs-8" style="padding-left: 0px">
+               <img src="{{ url_for('static', filename='image/halogen-brand.png') }}" style="width:300px;height:130px">
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <div class="vl col-sm-12 hidden-sm hidden-xs"></div>    
+            </div>
+            <div class="col-md-4 col-xs-12" >
+                
+                <div class="row">
+                    <div class="col-md-10 col-xs-offset-2 col-xs-8" >
+                         
+                        <form>
+                            <div class="row">
+                                <div class="input-group" >
+                                    <span class="input-group-addon" ><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="email" type="text" class="form-control" name="username" placeholder="User Name"  >
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" >
+                                <div class="input-group">
+                                    <span class="input-group-addon" ><i class="glyphicon glyphicon-lock" ></i></span>
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="Password" >
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="row" >
+                                <input class="btn btn-success btn-block" type="submit" value="Login" >
+                            </div>
+                            <br><br>  
+                            <div class="row">
+                                <a class="forget">Forget your password?</a>
+                                <a class="sign">Sign up</a>
+                                
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </body>
+</html>

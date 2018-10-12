@@ -1,0 +1,89 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 12, 2018, 10:51:40 AM
+    Author     : ZhenDan
+*/
+
+body{
+    background-color: #FCD001;
+
+}
+.vl {
+    border-left: 1px solid rgb(207, 207, 209,1);
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    margin-top:-55px;
+    top:0px;
+}
+.input-group{
+    border:2px solid rgb(207, 207, 209, 0.2);
+    border-radius:15px;
+}
+.input-group-addon{
+    height:50px;
+   
+    border:none;
+}
+.form-control{
+    height:50px;
+    
+    border:none;
+    color:white;
+    font-size:18px
+}
+.btn{
+    height:50px;
+    background-color: #DF5F32;
+    border-color:#FFBF05;
+    font-size:large;
+    font-weight:bold;
+  
+
+}
+.forget {
+    color:black;
+    font-size:medium;
+    font-weight:bold;
+    text-decoration: none;
+
+}
+.sign{
+    color:black;
+    font-size:medium;
+    font-weight:bold;
+    text-decoration: none;
+    float:right;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .vl {
+        visibility: hidden;
+    }
+  
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .vl {
+        visibility: hidden;
+    }
+ 
+  
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .vl {
+        visibility: hidden;
+    }
+ 
+  
+}
