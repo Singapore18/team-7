@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `response_list` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`username`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
-('dummy', 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
+INSERT INTO `user_details` (`username`, `role`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
+('dummy', 0, 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
 -- INSERT THE REST OF THE STUDENTS IN HERE
 
 -- INSERT ALL THE DEFAULT QUESTIONS INTO DB

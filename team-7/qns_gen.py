@@ -15,7 +15,7 @@ response_df = pd.read_csv(response_file)
 column_names = list(response_df.columns.values)
 l = len(column_names)
 # add user
-all_users = [{'password': 'sample'} for i in range(response_df.shape[0])]
+all_users = [{'password': 'sample', 'role': 0} for i in range(response_df.shape[0])]
 for i in range(8):
 	if not i == 6:
 		fld = column_names[i]
