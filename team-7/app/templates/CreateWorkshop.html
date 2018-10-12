@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+       
+       
+       
+        <link rel="stylesheet" href="css/nav.css">
+        <style>
+           .form{
+    padding:20px;
+    display: block;
+    margin-top:5px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+/** inputs and textarea**/
+ input:not([type="submit"]){
+   
+    display:block;
+    height:40px;
+    border:1px solid #DBDBDB;
+    color:#3F3F3F;
+    font-family:'Droid Sans', Tahoma, Arial, Verdana sans-serif;
+    font-size:14px;
+    border-radius:2px;
+   
+}
+input:not([type="submit"]):active,input:not([type="submit"]):focus  {
+    background:#F7F7F7;
+    border:solid 1px #969696;
+    /*box-shadow*/
+    -webkit-box-shadow:2px 2px 7px #E8E8E8 inset;
+    -moz-box-shadow:2px 2px 7px #E8E8E8 inset;
+    box-shadow:2px 2px 7px #E8E8E8 inset;
+}
+/* placeholder */
+ ::-webkit-input-placeholder {
+    color:#BABABA;
+    font-style:italic;
+}
+input:-moz-placeholder{
+    color:#BABABA;
+    font-style:italic;
+}
+
+
+
+.l{
+    
+    color:#7F7E7E;
+    font-weight:300;
+    font-size:medium;
+    
+}
+ .l:hover {
+    color:#191919;
+}
+
+.indication {
+    color:#878787;
+    font-size:12px;
+    font-style:italic;
+    padding-right:10px;
+   
+}
+
+.required {
+    color:#E5224C;
+}
+
+ .dropdown-submenu {
+    position: relative;
+    
+    
+    
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+
+    
+    
+}
+.dropdown-menu{
+    top:0;
+   
+  
+}
+.span{
+   float: left;
+   font-size:15px;
+   font-weight:bold;
+   margin-top:10px; 
+   
+}
+
+        </style>
+
+
+        <title>Workshop</title>
+    </head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" id="logo" style="border: 0;">
+                            <a href="" class="site_title"><img src="{{ url_for('static', filename='image/logo.jpg') }}" style="height:110px;width:200px"></a>
+                        </div>
+                        
+                        <div class="clearfix"></div><br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <ul class="nav side-menu" id="options">
+                                    <li style=""><a ><img src="{{ url_for('static', filename='image/result.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:20px">View Survey Question</label></a></li>
+                                    <li style="margin-top: 50px"><a href="/results"><img src="{{ url_for('static', filename='image/survey.png') }}" style="width:70px;height:80px;margin-left:55px;"><br><label style="margin-left:10px">View Past Workshop Result</label></a></li>
+                                    <li style="margin-top: 50px"><a href="/workshop"><img src="{{ url_for('static', filename='image/workshop.png') }}" style="width:70px;height:80px;margin-left:55px;"><br><label style="margin-left:30px">Create Workshop</label></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="top_nav" style=" font-family: Oswald;">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ url_for('static', filename='image/user.png') }}" alt="">
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- page content -->
+                <div class="right_col">
+                    <div class="form">
+                       <div class="row">
+                    <div class="col-md-10">
+                        <h1>Create Workshop</h1>
+                    </div>
+                </div> 
+                         <br/>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="name" class="icon-user l"> Workshop Name
+                            <span class="required">*</span>
+                        </label>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-xs-12 ">
+                        <input type="text" class="form-control" name="name" placeholder="Enter your name" required="" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-offset-8 col-xs-offset-7">
+                        <input type="submit" value="Create Workshop" class="btn btn-success" style="width: 70% !important;background-color: #DF5F32;border:1px solid #DF5F32"/>
+                    </div>
+                </div>
+                    </div>
+                     
+                    </div>
+                </div>
+                <!-- page content -->
+            </div>
+
+        <!-- jQuery -->
+        <script src="assets/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        
+
+    </body>
+</html>
