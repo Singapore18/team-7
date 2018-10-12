@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS `user_details` (
-  `index` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `role` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
