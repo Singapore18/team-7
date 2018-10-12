@@ -91,8 +91,8 @@ def survey():
         return redirect(url_for('index'))
     return render_template('surveypage.html', questions=qns)
 
-    @app.route('/workshop')
-def survey():
+@app.route('/workshop')
+def workshop():
     if 'logged_in' not in session or not session['logged_in']:
         return redirect(url_for('login'))
     
