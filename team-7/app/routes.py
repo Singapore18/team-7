@@ -91,6 +91,13 @@ def survey():
         return redirect(url_for('index'))
     return render_template('surveypage.html', questions=qns)
 
+    @app.route('/workshop')
+def survey():
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect(url_for('login'))
+    
+    return render_template('CreateWorkshop.html')
+
 @app.route('/results')
 def results():
     if 'logged_in' not in session or not session['logged_in']:

@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `response_list` (
   `workshop_index` INTEGER NOT NULL,
   `user_index` INTEGER NOT NULL,
   `question_index` INTEGER NOT NULL,
-  `score` INTEGER NOT NULL
+  `score` INTEGER DEFAULT NULL,
+  `word` varchar(5000) DEFAULT NULL
   --FOREIGN KEY (survey_index) REFERENCES surveys_list(index),
   --FOREIGN KEY (question_index) REFERENCES questions_list(index)
   --CONSTRAINT name_unique UNIQUE (username)
@@ -52,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `response_list` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`username`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
-('af89bb4adc33c1ae7f99f74e78021ddc', 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
+INSERT INTO `user_details` (`username`, `role`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
+('dummy', 0, 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
 -- INSERT THE REST OF THE STUDENTS IN HERE
 
 -- INSERT ALL THE DEFAULT QUESTIONS INTO DB
@@ -137,11 +138,6 @@ INSERT INTO `questions_list` (`content`) VALUES
 ("I assure others that I am receptive to their ideas."),
 ("I ask questions that show my understanding of others' positions."),
 ("I show others that I am listening through my body language (e.g. head nods, eye contact)"),
-("I am able to finish all my work during a set amount of time..1"),
-("I know all the tasks I have to accomplish for the day..1"),
-("I am able to plan and set goals for my projects..1"),
-("I can set aside distractions and focus on what I am doing..1"),
-("I set up a schedule for tasks and projects to be done..1"),
 ("How much do you contribute ideas/information/resources?"),
 ("How participatory are you?"),
 ("What is your typical standard of work quality?"),

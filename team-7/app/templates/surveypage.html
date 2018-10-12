@@ -25,8 +25,8 @@
                         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                             <div class="menu_section">
                                 <ul class="nav side-menu" id="options">
-                                    <li style=""><a><img src="{{ url_for('static', filename='image/result.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:20px">View Previous result</label></a></li>
-                                    <li style="margin-top: 50px"><a><img src="{{ url_for('static', filename='image/survey.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:40px">Do New Survey</label></a></li>
+                                    <li style=""><a href="/results"><img src="{{ url_for('static', filename='image/result.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:20px">View Previous result</label></a></li>
+                                    <li style="margin-top: 50px"><a href="/survey"><img src="{{ url_for('static', filename='image/survey.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:40px">Do New Survey</label></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
+                                        <img src="{{ url_for('static', filename='image/user.png') }}" alt="">
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
