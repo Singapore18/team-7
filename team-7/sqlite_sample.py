@@ -148,21 +148,58 @@ def get_survey_questions():
 get_survey_questions()
 
 """
+Track which student (id) do survey for which workshop at what time
+"""
+def save_survey_frame(stu_idx, wsname, datestr):
+	with app.app_context():
+		db = get_db()
+		query_string = 'INSERT INTO `surveys_list` (`user_index`, `workshop_name`, `date`) VALUES '
+		data_string = '(' + str(stu_idx) + ', "' + wsname + '", "' + datestr + '");'
+		db.execute(query_string)
+		db.commit()
+		print("Save survey framework completed!")
+
+"""
+Create a workshop
+wsdate in Datetime ISO1806 format
+"""
+def create_workshop(wsname, wsdate):
+	with app.app_context():
+		query_string = 'INSERT INTO `workshop_list` (`workshop_name`, `date`) VALUES '
+		data_string = '("' + wsname + '", "' + wsdate + '");'
+		db = get_db()
+		cur = db.execute(query_string + data_string)
+		db.commit()
+		print("Add success")
+
+create_workshop("Living on the edge", "2018-10-12 12:00:00.000")
+
+def get_workshop(wsname, wsdate):
+	with app.app_context():
+		res = query_db('select * from workshop_list where workshop_name = ? and date = ?',
+	                [wsname, wsdate])
+		return res
+
+ws = get_workshop("Living on the edge", "2018-10-12 12:00:00.000")
+print(ws)
+
+"""
 Example: save survey result to the database
 Need:
 - survey_dict have user_index key
 - each key is the index of the question in the database (int)
 - value at each key is the result of the question (string)
 """
-def save_survey(survey_dict):
+def save_survey_result(survey_dict):
 	usr_idx = survey_dict['user_index']
+	ws_idx = survey_dict['workshop_index']
 	keys = list(survey_dict.keys())
 	key_len = len(keys)
-	query_string = 'INSERT INTO `response_list` (`user_index`, `question_index`, `score`) VALUES '
-	for i in range(1, key_len):
+	query_string = 'INSERT INTO `response_list` (`workshop_index`, `user_index`, `question_index`, `score`) VALUES '
+	for i in range(2, key_len):
 		x = keys[i]
 		# answer to qns x is survey_dict[x]
-		data_string = '(' + str(usr_idx) + ', ' + str(x) + ', ' + str(survey_dict[x]) + ')'
+		data_string = '(' + str(ws_idx) + ', ' + str(usr_idx) + ', ' + str(x) + ', ' + str(survey_dict[x]) + ')'
 		print(data_string)
 		if not i == key_len - 1:
 			data_string = data_string + ', '
@@ -182,14 +219,16 @@ def save_survey(survey_dict):
 """
 Sample usage of save_survey
 """
-save_survey({
+save_survey_result({
 	'user_index': 1,
+	'workshop_index': 1,
 	1: 7,
 	12: 4,
 	56: 5
 	})
-save_survey({
+save_survey_result({
 	'user_index': 2,
+	'workshop_index': 1,
 	13: 7,
 	12: 1,
 	57: 5

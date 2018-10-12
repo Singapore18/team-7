@@ -18,6 +18,13 @@ CREATE TABLE IF NOT EXISTS `questions_list` (
   --CONSTRAINT name_unique UNIQUE (username)
 );
 
+CREATE TABLE IF NOT EXISTS `workshop_list` (
+  `index` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `workshop_name` varchar(5000) NOT NULL,
+  `date` varchar(5000) NOT NULL
+  --CONSTRAINT name_unique UNIQUE (username)
+);
+
 CREATE TABLE IF NOT EXISTS `surveys_list` (
   `index` INTEGER PRIMARY KEY AUTOINCREMENT,
   `user_index` int(11) DEFAULT NULL,
@@ -29,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `surveys_list` (
 
 CREATE TABLE IF NOT EXISTS `response_list` (
   `index` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `workshop_index` INTEGER NOT NULL,
   `user_index` INTEGER NOT NULL,
   `question_index` INTEGER NOT NULL,
   `score` INTEGER NOT NULL
