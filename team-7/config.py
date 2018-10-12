@@ -1,4 +1,4 @@
 import os
 
 class Config(object):
-    a = 'a'
+    SECRET_KEY = 'code4good'

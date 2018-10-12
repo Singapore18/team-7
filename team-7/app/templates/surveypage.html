@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+
+        <title>Create Developer Account</title>
+    </head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" id="logo" style="border: 0;">
+                            <a href="" class="site_title"><img src="{{ url_for('static', filename='image/logo.jpg') }}" style="height:110px;width:200px"></a>
+                        </div>
+                        
+                        <div class="clearfix"></div><br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <ul class="nav side-menu" id="options">
+                                    <li style=""><a><img src="{{ url_for('static', filename='image/result.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:20px">View Previous result</label></a></li>
+                                    <li style="margin-top: 50px"><a><img src="{{ url_for('static', filename='image/survey.png') }}" style="width:70px;height:70px;margin-left:55px;"><br><label style="margin-left:40px">Do New Survey</label></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="top_nav" style=" font-family: Oswald;">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- page content -->
+                <div class="right_col">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10">
+<!--                            <!--<div class="content" >-->
+                    <p style="font-size:xx-large;padding-left:350px"> <b> Survey </b></p>
+                        <br />
+
+                        <table>
+                            <thead>
+                              <tr style="height:50px">
+                                  <td style="font-size:large">
+                                      <b> Serial No. </b>
+                                  </td>
+                                  <td style="font-size:large">
+                                      <b> Query </b> 
+                                  </td>
+                              </tr>
+                            </thead>
+                            
+                            <tr style="height:50px">
+                                <td style="width:200px">
+                                    <p> Q1. </p>
+                                </td>
+                                <td style="width:300px">
+                                    <p> How hungry are you? </p>
+                                </td>
+                                <td style="width:100px">
+                                    1 <input type="checkbox" value="1" />
+                                </td>
+                                <td style="width:100px">
+                                    2 <input type="checkbox" value="2" />
+                                </td>
+                                <td style="width:100px">
+                                    3 <input type="checkbox" value="3" />
+                                </td>
+                                <td style="width:100px">
+                                    4 <input type="checkbox" value="4" />
+                                </td>
+                                <td style="width:100px">
+                                    5 <input type="checkbox" value="5" />
+                                </td>
+                                <td style="width:100px">
+                                    6 <input type="checkbox" value="6" />
+                                </td>
+                                <td style="width:100px">
+                                    7 <input type="checkbox" value="7" />
+                                </td>
+                            </tr>
+                        </table>
+
+                      
+                    </div>
+                    <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- page content -->
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="assets/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        
+
+    </body>
+</html>
+
+
+
