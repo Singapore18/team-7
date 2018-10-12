@@ -10,7 +10,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
         <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
         <title>Login Page</title>
     </head>
     <body>
@@ -28,7 +28,7 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-md-10 col-xs-offset-2 col-xs-8" >
                          
-                        <form>
+                        <form method='post'>
                             <div class="row">
                                 <div class="input-group" >
                                     <span class="input-group-addon" ><i class="glyphicon glyphicon-user"></i></span>
@@ -49,7 +49,7 @@ and open the template in the editor.
                             <br><br>  
                             <div class="row">
                                 <a class="forget">Forget your password?</a>
-                                <a class="sign">Sign up</a>
+                                <a class="sign" href="/register">Sign up</a>
                                 
                             </div>
                         </form> 

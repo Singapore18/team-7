@@ -1,0 +1,81 @@
+
+.glyphicon{
+    color:#EFAD54;
+    padding-right:10px;
+    font-size: 0.8em;
+}
+.btn{
+    color:white;
+    font-weight: bold;
+    font-size:1em;
+}
+
+.edit{
+    background-color: #EFAD54;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-left:10px;
+}
+
+.delete{
+    background-color:#DF514A;
+    margin-left:20px;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.tbTemplate{
+   
+    width:300px;
+    margin-left:-30px;
+    font-size:medium;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+    background-color: white;
+    
+}
+
+.card-img-top {
+    display: block;
+    width: 55%;
+    height: auto;
+    margin:auto
+}
+
+.card-title {
+    font-size: 1.4em;
+    font-weight: 550;
+    line-height: 1em;
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    color:#2F4F4F;
+    font-family: Oswald;
+   
+}
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    padding:0.5em 0.5em;
+    color: #4D889C;
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+   
+}
