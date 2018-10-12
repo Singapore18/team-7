@@ -14,6 +14,17 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   --CONSTRAINT name_unique UNIQUE (username)
 );
 
+DROP TABLE IF EXISTS `score_list`;
+CREATE TABLE `score_list`(
+    `user_id` INTEGER NOT NULL,
+    `code` varchar(10),
+    `growth` int(11) NOT NULL,
+    `confidence` int(11) NOT NULL,
+    `strategic` int(11) NOT NULL,
+    `productive` int(11) NOT NULL,
+    `team` int(11) NOT NULL
+);
+
 DROP TABLE IF EXISTS `questions_list`;
 CREATE TABLE IF NOT EXISTS `questions_list` (
   `index` INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,6 +36,7 @@ DROP TABLE IF EXISTS `workshop_list`;
 CREATE TABLE IF NOT EXISTS `workshop_list` (
   `index` INTEGER PRIMARY KEY AUTOINCREMENT,
   `workshop_name` varchar(5000) NOT NULL,
+  `code` varchar(20) NOT NULL,
   `date` varchar(5000) NOT NULL
   --CONSTRAINT name_unique UNIQUE (username)
 );
@@ -58,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `response_list` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`username`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
-('af89bb4adc33c1ae7f99f74e78021ddc', 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
+INSERT INTO `user_details` (`username`, `role`, `password`, `gender`, `email`, `ethnic_code`, `monthly_income`, `district`, `tertiary_class`, `tertiary_name`) VALUES
+('user', '0', 'password', 'Female', 'example@gmail.com', '4', '$3,000 to $4,999', '27', 'ITE', 'ite ce');
 -- INSERT THE REST OF THE STUDENTS IN HERE
 
 -- INSERT ALL THE DEFAULT QUESTIONS INTO DB

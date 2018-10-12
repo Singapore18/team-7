@@ -5,7 +5,7 @@
         <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-         <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
 
 
         <title>Result</title>
@@ -58,11 +58,14 @@
                     <div class="form">
                         <div class="row">
                             <div class="col-lg-5 box" style="margin-left: 20px">
-                                <img src="{{ url_for('static', filename='image/report.png') }}"/>
+                                <h1>Results</h1>
+                                <!-- <img src="{{ url_for('static', filename='image/report.png') }}"/> -->
+                                <div id='myDiv'></div>
                             </div>
                             
                             <div class="col-lg-5 box" style="margin-left: 100px">
-                                <img src="{{ url_for('static', filename='image/repot.png') }}"/>
+                                <h1>Average</h1>
+                                <div id='myDiv1'></div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +80,51 @@
         <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
         <!-- Bootstrap -->
         <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/plotly.min.js') }}"></script>
         
+        <script>
+                var trace1 = {
+                    type: 'bar',
+                    x: ["Growth", "Confidence", "Strategic", "Productive", "Team"],
+                    y: [{{ survey[2]}}, {{ survey[3]}}, {{survey[4] }}, {{survey[5]}}, {{survey[6]}}],
+                    marker: {
+                        color: '#C8A2C8',
+                        line: {
+                            width: 1
+                        }
+                    }
+                };
+            
+                var data = [trace1];
+            
+                var layout = {
+                    title: 'Responsive to window\'s size!',
+                    font: { size: 18 }
+                };
+            
+                Plotly.newPlot('myDiv', data, layout, { responsive: false });
 
+                var trace2 = {
+                    type: 'bar',
+                    x: ["Growth", "Confidence", "Strategic", "Productive", "Team"],
+                    y: [4.392084322211362, 4.689655172413798, 5.019002882459691, 4.644646098003628, 5.6243194192377475],
+                    marker: {
+                        color: '#C8A2C8',
+                        line: {
+                            width: 1
+                        }
+                    }
+                };
+            
+                var data = [trace2];
+            
+                var layout = {
+                    title: 'Responsive to window\'s size!',
+                    font: { size: 18 }
+                };
+            
+                Plotly.newPlot('myDiv1', data, layout, { responsive: false });
+                
+            </script>
     </body>
 </html>

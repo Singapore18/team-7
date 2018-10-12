@@ -3,6 +3,7 @@ import sqlite3
 # from .models import *
 # from flask_login import current_user, login_user
 from app.controllers import *
+from .analyze import processData
 from flask import render_template, flash, redirect, url_for, request, session
 
 @app.route('/')
@@ -66,22 +67,50 @@ def register():
         })
     return redirect(url_for('login'))
 
-@app.route('/survey')
+@app.route('/survey', methods=['GET', 'POST'])
 def survey():
     if 'logged_in' not in session or not session['logged_in']:
         return redirect(url_for('login'))
-    
-    return render_template('surveypage.html')
+    qns = query_db('select * from questions_list')
+    # print(':(')
+    if request.method == 'POST':
+        results = {}
+        # print(':)')
+        for i in range(1, len(qns) + 1):
+            # print(i)
+            results[i] = int(request.form[str(i)])
+        scores = processData(results)
+        # print('hi')
+        code = 'abc'
+        with app.app_context():
+            db = get_db()
+            query_string = 'INSERT INTO score_list (user_id, code, growth, confidence, strategic, productive, team) VALUES '
+            data_string = '(' + str(session['id']) + ', "' + code + '", "' + str(scores['growth']) + '", "' + str(scores['confidence']) + '", "' + str(scores['strategic']) + '", "' + str(scores['productive']) + '", "' + str(scores['team']) + '");'
+            db.execute(query_string + data_string)
+            db.commit()
+        return redirect(url_for('index'))
+    return render_template('surveypage.html', questions=qns)
 
 @app.route('/results')
 def results():
     if 'logged_in' not in session or not session['logged_in']:
         return redirect(url_for('login'))
     if session['role'] == 0:
-        return render_template('studentResultHome.html')
+        surveys = query_db('select * from score_list where user_id = ' + str(session['id']))
+       # benchmark = [4.392084322211362, 4.689655172413798, 5.019002882459691, 4.644646098003628, 5.6243194192377475]
+        return render_template('studentResultHome.html', surveys=surveys)
     else:
         return render_template('teacherResultHome.html')
     
+@app.route('/results/<code>')
+def exact_results(code):
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect(url_for('login'))
+    if session['role'] == 0:
+        survey = query_db('select * from score_list where user_id = ' + str(session['id']) + ' and code = "' + code + '"', one = True)
+        return render_template('resultStudent.html', survey=survey)
+    else:
+        return render_template('resultTeacher.html')
 
 def is_number(s):
     try:

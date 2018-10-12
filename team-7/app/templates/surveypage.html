@@ -60,7 +60,7 @@
 <!--                            <!--<div class="content" >-->
                     <p style="font-size:xx-large;padding-left:350px"> <b> Survey </b></p>
                         <br />
-
+                    <form method='post'>
                         <table>
                             <thead>
                               <tr style="height:50px">
@@ -72,38 +72,41 @@
                                   </td>
                               </tr>
                             </thead>
-                            
+
+                            {% for qn in questions %}
                             <tr style="height:50px">
                                 <td style="width:200px">
-                                    <p> Q1. </p>
+                                    <p> {{qn[0]}}. </p>
                                 </td>
                                 <td style="width:300px">
-                                    <p> How hungry are you? </p>
+                                    <p> {{qn[1]}} </p>
                                 </td>
                                 <td style="width:100px">
-                                    1 <input type="checkbox" value="1" />
+                                    1 <input name='{{qn[0]}}' type="radio" value="1" />
                                 </td>
                                 <td style="width:100px">
-                                    2 <input type="checkbox" value="2" />
+                                    2 <input name='{{qn[0]}}' type="radio" value="2" />
                                 </td>
                                 <td style="width:100px">
-                                    3 <input type="checkbox" value="3" />
+                                    3 <input name='{{qn[0]}}' type="radio" value="3" />
                                 </td>
                                 <td style="width:100px">
-                                    4 <input type="checkbox" value="4" />
+                                    4 <input name='{{qn[0]}}' type="radio" value="4" checked/>
                                 </td>
                                 <td style="width:100px">
-                                    5 <input type="checkbox" value="5" />
+                                    5 <input name='{{qn[0]}}' type="radio" value="5" />
                                 </td>
                                 <td style="width:100px">
-                                    6 <input type="checkbox" value="6" />
+                                    6 <input name='{{qn[0]}}' type="radio" value="6" />
                                 </td>
                                 <td style="width:100px">
-                                    7 <input type="checkbox" value="7" />
+                                    7 <input name='{{qn[0]}}' type="radio" value="7" />
                                 </td>
                             </tr>
+                            {% endfor %}
                         </table>
-
+                        <input type='submit' value='Submit'>
+                    </form>
                       
                     </div>
                     <!--</div>-->

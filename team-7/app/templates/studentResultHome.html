@@ -58,7 +58,8 @@
                     <div class="col-lg-3 col-sm-4 col-xs-6" style="margin-bottom: 15px">
                             <!-- Trigger/Open The Modal -->
                             <div class="row">
-                            <a class="myBtn">
+                            {% for survey in surveys %}
+                            <a class="myBtn" href='/results/{{ survey[1] }}'>
                                 <div class="card card-inverse card-info">
                                     <div class="card-block">
                                         <img class="card-img-top create" src="{{ url_for('static', filename='image/report.png') }}" style="height:150px; width:150px">
@@ -75,6 +76,7 @@
                                     </div>
                                 </div>
                             </a> 
+                            {% endfor %}
                                 
                             </div>  
                         </div> 
