@@ -60,9 +60,18 @@ init_db()
 """
 Example usage: retrieve all users from the database
 """
-with app.app_context():
-	for user in query_db('select * from user_details'):
-		print(user)
+def get_all_user():
+	all_users = []
+	with app.app_context():
+		for user in query_db('select * from user_details'):
+			all_users.append(user)
+			print(user)
+	return all_users
+
+"""
+Sample get_all_user usage
+"""
+get_all_user()
 
 """
 Example usage: Add a user to the database
