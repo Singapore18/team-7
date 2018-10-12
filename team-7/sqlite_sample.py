@@ -103,6 +103,7 @@ def insert_user(detail_dict):
 		# insert the user
 		db = get_db()
 		cur = get_db().execute(query_string)
+		db.commit()
 		# check for debugging
 		print("Newly inserted user")
 		new_user = query_db('select * from user_details where username = ?',
@@ -158,17 +159,20 @@ def save_survey(survey_dict):
 	keys = list(survey_dict.keys())
 	key_len = len(keys)
 	query_string = 'INSERT INTO `response_list` (`user_index`, `question_index`, `score`) VALUES '
-	for i in range(key_len):
+	for i in range(1, key_len):
 		x = keys[i]
 		# answer to qns x is survey_dict[x]
 		data_string = '(' + str(usr_idx) + ', ' + str(x) + ', ' + str(survey_dict[x]) + ')'
+		print(data_string)
 		if not i == key_len - 1:
 			data_string = data_string + ', '
-		query_string = prequel_string + data_string
+		query_string = query_string + data_string
+	query_string = query_string + ';'
 	with app.app_context():
 		# insert the user
 		db = get_db()
 		cur = get_db().execute(query_string)
+		db.commit()
 		# check for debugging
 		print("Newly inserted survey result")
 		new_result = query_db('select * from response_list where user_index = ?',
@@ -178,16 +182,36 @@ def save_survey(survey_dict):
 """
 Sample usage of save_survey
 """
+save_survey({
+	'user_index': 1,
+	1: 7,
+	12: 4,
+	56: 5
+	})
+save_survey({
+	'user_index': 2,
+	13: 7,
+	12: 1,
+	57: 5
+	})
 
 """
 Example: retrieve survey results
 for student a, question b
-Return: a dictionary
+Return: a list of dictionaries, each being result of a particular question
 """
-def get_survey_result(stu_idx, qn_idx):
+def get_survey_result_by_student(stu_idx):
 	with app.app_context():
-		result = query_db('select * from response_list where user_index = ? and question_index = ?',
-	                [usr_idx, qn_idx])
+		result = query_db('select * from response_list where user_index = ?',
+	                [stu_idx])
+		print("Required result is:")
+		print(result)
+	return result
+
+def get_survey_result_by_question(qn_idx):
+	with app.app_context():
+		result = query_db('select * from response_list where question_index = ?',
+	                [qn_idx])
 		print("Required result is:")
 		print(result)
 	return result
@@ -195,3 +219,5 @@ def get_survey_result(stu_idx, qn_idx):
 """
 Sample usage of get_survey_result
 """
+get_survey_result_by_student(1) # expect 3 responses
+get_survey_result_by_question(12) # expect 2 responses

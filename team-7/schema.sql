@@ -49,13 +49,6 @@ INSERT INTO `user_details` (`username`, `password`, `gender`, `email`, `ethnic_c
 
 -- INSERT ALL THE DEFAULT QUESTIONS INTO DB
 INSERT INTO `questions_list` (`content`) VALUES
-("Nice, and you are:"),
-("Ethnic Group Code"),
-("Monthly Household Income"),
-("District Code"),
-("Tertiary Institute"),
-("Tertiary_Other"),
-("What's the name of the tertiary institute?"),
 ("I have a certain amount of intelligence, and I can't really do much to change it."),
 ("My intelligence is something that I cannot change very much."),
 ("I believe that no matter who you are, you can significantly change your intelligence level."),
